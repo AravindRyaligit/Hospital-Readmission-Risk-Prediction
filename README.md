@@ -12,7 +12,10 @@ A comprehensive machine learning system for predicting 30-day hospital readmissi
 - **Model Monitoring**: Drift detection and performance tracking
 - **Batch Processing**: Support for bulk predictions via CSV upload
 
-## 📊 Model Performance
+![Screenshot 2025-12-05 152350](https://github.com/user-attachments/assets/1b4f0deb-68d2-4c2a-a2fc-96736f1734db)
+
+## 📊 Mode
+l Performance
 
 Both models achieve strong performance on the test set:
 - **XGBoost**: AUC-ROC > 0.70
@@ -196,3 +199,4 @@ Built with XGBoost, LightGBM, FastAPI, and modern web technologies.
 - Dataset: Diabetes 130-US Hospitals (UCI Machine Learning Repository)
 - Models: XGBoost, LightGBM
 - Framework: FastAPI, scikit-learn
+

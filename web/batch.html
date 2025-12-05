@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Predictions</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Hospital Readmission Risk Prediction</h1>
+            <p class="subtitle">Batch Prediction Processing</p>
+            <nav>
+                <a href="index.html">Predict</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="monitoring.html">Monitoring</a>
+                <a href="batch.html" class="active">Batch</a>
+            </nav>
+        </header>
+
+        <main>
+            
+            <div class="card">
+                <h2>Upload CSV File</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Upload a CSV file containing patient data for batch predictions.
+                    The file should have the same columns as the individual prediction form.
+                </p>
+
+                <form id="batchUploadForm">
+                    <div class="form-group">
+                        <label for="csvFile">Select CSV File</label>
+                        <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="batchModel">Model Selection</label>
+                        <select id="batchModel" name="batchModel">
+                            <option value="lightgbm">LightGBM (Recommended)</option>
+                            <option value="xgboost">XGBoost</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Process Batch</button>
+                        <button type="button" class="btn btn-secondary" onclick="downloadSampleCSV()">Download Sample
+                            CSV</button>
+                    </div>
+                </form>
+            </div>
+
+            
+            <div class="card" id="batchResults" style="display: none;">
+                <h2>Batch Prediction Results</h2>
+
+                <div class="content-grid">
+                    <div class="metric">
+                        <span class="label">Total Patients:</span>
+                        <span class="value" id="totalPatients">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">High Risk Count:</span>
+                        <span class="value risk-high" id="highRiskCount">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Medium Risk Count:</span>
+                        <span class="value risk-medium" id="mediumRiskCount">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Low Risk Count:</span>
+                        <span class="value risk-low" id="lowRiskCount">-</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <canvas id="riskDistributionChart"></canvas>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h3>Detailed Results</h3>
+                    <div id="resultsTable" style="overflow-x: auto; margin-top: 15px;"></div>
+                </div>
+
+                <div class="form-actions" style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="downloadResults()">Download Results CSV</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Hospital Readmission Prediction System | Powered by XGBoost & LightGBM</p>
+        </footer>
+    </div>
+
+    <script src="static/js/app.js"></script>
+    <script src="static/js/batch.js"></script>
+</body>
+
+</html>

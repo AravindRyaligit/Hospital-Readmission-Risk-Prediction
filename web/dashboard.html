@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Performance Dashboard</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Hospital Readmission Risk Prediction</h1>
+            <p class="subtitle">Model Performance Dashboard</p>
+            <nav>
+                <a href="index.html">Predict</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="monitoring.html">Monitoring</a>
+                <a href="batch.html">Batch</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="content-grid">
+                
+                <div class="card">
+                    <h2>XGBoost Performance</h2>
+                    <div class="metric">
+                        <span class="label">AUC-ROC:</span>
+                        <span class="value" id="xgboost-auc-roc">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">AUC-PR:</span>
+                        <span class="value" id="xgboost-auc-pr">Loading...</span>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <img src="../reports/xgboost_roc_curve.png" alt="XGBoost ROC Curve"
+                            style="width: 100%; border-radius: 10px;">
+                    </div>
+                </div>
+
+                
+                <div class="card">
+                    <h2>LightGBM Performance</h2>
+                    <div class="metric">
+                        <span class="label">AUC-ROC:</span>
+                        <span class="value" id="lightgbm-auc-roc">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">AUC-PR:</span>
+                        <span class="value" id="lightgbm-auc-pr">Loading...</span>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <img src="../reports/lightgbm_roc_curve.png" alt="LightGBM ROC Curve"
+                            style="width: 100%; border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                <h2>Model Comparison</h2>
+                <canvas id="comparisonChart"></canvas>
+            </div>
+
+            
+            <div class="content-grid">
+                <div class="card">
+                    <h2>XGBoost Feature Importance</h2>
+                    <img src="../reports/xgboost_feature_importance.png" alt="XGBoost Features"
+                        style="width: 100%; border-radius: 10px;">
+                </div>
+                <div class="card">
+                    <h2>LightGBM Feature Importance</h2>
+                    <img src="../reports/lightgbm_feature_importance.png" alt="LightGBM Features"
+                        style="width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+
+            
+            <div class="content-grid">
+                <div class="card">
+                    <h2>XGBoost Confusion Matrix</h2>
+                    <img src="../reports/xgboost_confusion_matrix.png" alt="XGBoost Confusion Matrix"
+                        style="width: 100%; border-radius: 10px;">
+                </div>
+                <div class="card">
+                    <h2>LightGBM Confusion Matrix</h2>
+                    <img src="../reports/lightgbm_confusion_matrix.png" alt="LightGBM Confusion Matrix"
+                        style="width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Hospital Readmission Prediction System | Powered by XGBoost & LightGBM</p>
+        </footer>
+    </div>
+
+    <script src="static/js/app.js"></script>
+</body>
+
+</html>

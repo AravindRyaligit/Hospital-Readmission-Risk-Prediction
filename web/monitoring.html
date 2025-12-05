@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Monitoring</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Hospital Readmission Risk Prediction</h1>
+            <p class="subtitle">Model Monitoring & Drift Detection</p>
+            <nav>
+                <a href="index.html">Predict</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="monitoring.html" class="active">Monitoring</a>
+                <a href="batch.html">Batch</a>
+            </nav>
+        </header>
+
+        <main>
+            
+            <div class="card">
+                <h2>System Status</h2>
+                <div class="content-grid">
+                    <div class="metric">
+                        <span class="label">API Status:</span>
+                        <span class="value" id="apiStatus">Checking...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Models Loaded:</span>
+                        <span class="value" id="modelsLoaded">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Last Updated:</span>
+                        <span class="value" id="lastUpdated">-</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                <h2>Model Performance Over Time</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Track model performance metrics over time to detect degradation.
+                </p>
+                <canvas id="performanceChart"></canvas>
+            </div>
+
+            
+            <div class="card">
+                <h2>Prediction Distribution</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Monitor the distribution of predictions to detect data drift.
+                </p>
+                <canvas id="predictionDistChart"></canvas>
+            </div>
+
+            
+            <div class="card">
+                <h2>Data Quality Metrics</h2>
+                <div class="content-grid">
+                    <div class="metric">
+                        <span class="label">Missing Values:</span>
+                        <span class="value" id="missingValues">0%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Data Completeness:</span>
+                        <span class="value" id="dataCompleteness">100%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Feature Drift Detected:</span>
+                        <span class="value" id="driftDetected">No</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Anomalies Detected:</span>
+                        <span class="value" id="anomaliesDetected">0</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                <h2>Recent Alerts</h2>
+                <div id="alertsList">
+                    <div class="metric"
+                        style="background: rgba(16, 185, 129, 0.1); border-color: var(--success-color);">
+                        <span class="label">✓ System Health Check</span>
+                        <span class="value" style="color: var(--success-color);">All systems operational</span>
+                    </div>
+                    <div class="metric"
+                        style="background: rgba(16, 185, 129, 0.1); border-color: var(--success-color);">
+                        <span class="label">✓ Model Performance</span>
+                        <span class="value" style="color: var(--success-color);">Within acceptable range</span>
+                    </div>
+                    <div class="metric"
+                        style="background: rgba(16, 185, 129, 0.1); border-color: var(--success-color);">
+                        <span class="label">✓ Data Quality</span>
+                        <span class="value" style="color: var(--success-color);">No issues detected</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Hospital Readmission Prediction System | Powered by XGBoost & LightGBM</p>
+        </footer>
+    </div>
+
+    <script src="static/js/app.js"></script>
+    <script src="static/js/monitoring.js"></script>
+</body>
+
+</html>
